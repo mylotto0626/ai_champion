@@ -16,7 +16,7 @@ const Hero = () => {
             <span className="text-sm font-medium">AI 기반 건강 도우미</span>
           </div>
 
-          <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-[1.4]">
             언제나 곁에 있는
             <br />
             <span className="text-white">스마트 건강 도우미</span>
@@ -32,7 +32,7 @@ const Hero = () => {
             <Link to="/symptom-consultation">
               <Button
                 size="lg"
-                className="bg-white text-medical-primary hover:bg-blue-50 text-lg px-8 py-4 h-auto"
+                className="bg-white text-medical-primary hover:bg-blue-70 text-lg px-8 py-4 h-auto"
               >
                 지금 시작하기
               </Button>
@@ -46,7 +46,7 @@ const Hero = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto pt-2">
             <div className="text-center">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Heart className="w-8 h-8" />

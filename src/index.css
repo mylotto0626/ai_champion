@@ -248,6 +248,10 @@ button:focus {
   color: #374151 !important;
 }
 
+Input {
+  background-color: #f9fafb;
+}
+
 /* 노란색 관련 스타일 완전 제거 */
 * {
   -webkit-tap-highlight-color: transparent !important;

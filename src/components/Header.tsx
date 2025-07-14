@@ -7,9 +7,9 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white/95 backdrop-blur-md border-b border-blue-100 sticky top-0 z-50">
+    <header className="bg-white/95 backdrop-blur-md border-b border-blue-100">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 h-20 px-2 sm:px-4 lg:px-6">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 medical-gradient rounded-xl flex items-center justify-center">
@@ -35,24 +35,6 @@ const Header = () => {
             >
               검진 결과
             </Link>
-            <a
-              href="#medicine"
-              className="text-gray-700 hover:text-medical-primary transition-colors"
-            >
-              처방약 정보
-            </a>
-            <a
-              href="#senior"
-              className="text-gray-700 hover:text-medical-primary transition-colors"
-            >
-              시니어 케어
-            </a>
-            <a
-              href="#counseling"
-              className="text-gray-700 hover:text-medical-primary transition-colors"
-            >
-              마음 상담
-            </a>
           </nav>
 
           {/* Mobile Menu Button */}

@@ -1,4 +1,5 @@
 import { Button } from "../components/ui/button";
+import { Link } from "react-router-dom";
 import {
   Card,
   CardContent,
@@ -28,8 +29,8 @@ const ServiceCard = ({
   onClick,
 }: ServiceCardProps) => {
   return (
-    <Card className="group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-[2px_2px_8px_rgba(0,0,0,0.1)] animate-fade-in">
-      <CardHeader className="medical-gradient text-white rounded-t-lg">
+    <Card className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-0 shadow-[2px_2px_8px_rgba(0,0,0,0.1)] animate-fade-in">
+      <CardHeader className="medical-gradient text-white rounded-t-lg px-6 py-8 flex flex-col items-center">
         <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
           <Icon className="w-6 h-6 text-white" />
         </div>
@@ -42,21 +43,20 @@ const ServiceCard = ({
       <CardContent className="p-6 bg-white">
         <ul className="space-y-3 mb-6">
           {features.map((feature, index) => (
-            <li key={index} className="flex items-start space-x-3">
+            <li key={index} className="flex items-start gap-4">
               <div className="w-2 h-2 bg-medical-secondary rounded-full mt-2 flex-shrink-0"></div>
-              <span className="text-gray-700 text-sm leading-relaxed">
+              <span className="text-gray-700 text-m leading-relaxed">
                 {feature}
               </span>
             </li>
           ))}
         </ul>
 
-        <Button
-          className="w-full bg-medical-primary hover:bg-medical-primary/90 text-white font-medium py-3 rounded-lg transition-all duration-200 group-hover:animate-pulse-soft"
-          onClick={onClick}
-        >
-          {buttonText}
-        </Button>
+        <Link to="/checkup-analysis" className="block w-full">
+          <Button className="w-full bg-medical-primary hover:bg-medical-primary/90 text-white text-base py-3 rounded-lg transition-all duration-200 group-hover:animate-pulse-soft">
+            {buttonText}
+          </Button>
+        </Link>
       </CardContent>
     </Card>
   );
