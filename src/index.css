@@ -1,13 +1,271 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+
+@layer base {
+  :root {
+    --background: 255 255 255;
+    --foreground: 25 34 47;
+
+    --card: 255 255 255;
+    --card-foreground: 25 34 47;
+
+    --popover: 255 255 255;
+    --popover-foreground: 25 34 47;
+
+    --primary: 0 102 204;
+    --primary-foreground: 255 255 255;
+
+    --secondary: 0 170 136;
+    --secondary-foreground: 255 255 255;
+
+    --muted: 255 255 255;
+    --muted-foreground: 100 116 139;
+
+    --accent: 255 255 255;
+    --accent-foreground: 0 102 204;
+
+    --destructive: 255 107 107;
+    --destructive-foreground: 255 255 255;
+
+    --border: 226 232 240;
+    --input: 226 232 240;
+    --ring: 0 102 204;
+    --ring-offset: 255 255 255;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 255 255 255;
+    --sidebar-foreground: 25 34 47;
+    --sidebar-primary: 0 102 204;
+    --sidebar-primary-foreground: 255 255 255;
+    --sidebar-accent: 255 255 255;
+    --sidebar-accent-foreground: 25 34 47;
+    --sidebar-border: 226 232 240;
+    --sidebar-ring: 0 102 204;
+  }
+
+  .dark {
+    --background: 25 34 47;
+    --foreground: 245 248 255;
+
+    --card: 32 42 56;
+    --card-foreground: 245 248 255;
+
+    --popover: 32 42 56;
+    --popover-foreground: 245 248 255;
+
+    --primary: 0 102 204;
+    --primary-foreground: 255 255 255;
+
+    --secondary: 0 170 136;
+    --secondary-foreground: 255 255 255;
+
+    --muted: 45 55 72;
+    --muted-foreground: 148 163 184;
+
+    --accent: 45 55 72;
+    --accent-foreground: 245 248 255;
+
+    --destructive: 255 107 107;
+    --destructive-foreground: 255 255 255;
+
+    --border: 64 74 91;
+    --input: 64 74 91;
+    --ring: 0 102 204;
+
+    --sidebar-background: 32 42 56;
+    --sidebar-foreground: 245 248 255;
+    --sidebar-primary: 0 102 204;
+    --sidebar-primary-foreground: 255 255 255;
+    --sidebar-accent: 45 55 72;
+    --sidebar-accent-foreground: 245 248 255;
+    --sidebar-border: 64 74 91;
+    --sidebar-ring: 0 102 204;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background-color: white !important;
+  }
+}
+
+@layer components {
+  .medical-gradient {
+    background: linear-gradient(135deg, #0066cc 0%, #00aa88 100%);
+  }
+
+  .care-gradient {
+    background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+  }
+
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* 스크롤바 스타일 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1 !important;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1 !important;
+  border-radius: 4px;
+  border: none !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8 !important;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #8a8a8a !important;
+}
+
+::-webkit-scrollbar-corner {
+  background: #f1f1f1 !important;
+}
+
+/* Firefox 스크롤바 */
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #c1c1c1 #f1f1f1 !important;
+}
+
+/* 모든 요소에 대한 스크롤바 스타일 강제 적용 */
+html,
+body,
+div,
+section,
+article,
+aside,
+header,
+footer,
+nav,
+main {
+  scrollbar-width: thin !important;
+  scrollbar-color: #c1c1c1 #f1f1f1 !important;
+}
+
+/* 특정 컨테이너에 대한 스크롤바 스타일 */
+.scroll-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: #f1f1f1 !important;
+  border-radius: 4px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1 !important;
+  border-radius: 4px;
+  border: none !important;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8 !important;
+}
+
+/* Radix UI ScrollArea 스크롤바 스타일 강제 적용 */
+[data-radix-scroll-area-viewport] {
+  scrollbar-width: thin !important;
+  scrollbar-color: #c1c1c1 #f1f1f1 !important;
+}
+
+[data-radix-scroll-area-viewport]::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+[data-radix-scroll-area-viewport]::-webkit-scrollbar-track {
+  background: #f1f1f1 !important;
+  border-radius: 4px !important;
+}
+
+[data-radix-scroll-area-viewport]::-webkit-scrollbar-thumb {
+  background: #c1c1c1 !important;
+  border-radius: 4px !important;
+  border: none !important;
+}
+
+[data-radix-scroll-area-viewport]::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8 !important;
+}
+
+/* Radix UI ScrollArea Thumb 스타일 강제 적용 */
+[data-radix-scroll-area-thumb] {
+  background-color: #c1c1c1 !important;
+  border-radius: 9999px !important;
+}
+
+[data-radix-scroll-area-thumb]:hover {
+  background-color: #a8a8a8 !important;
+}
+
+/* Radix UI ScrollArea Scrollbar 스타일 강제 적용 */
+[data-radix-scroll-area-scrollbar] {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* 버튼 호버 효과 강제 적용 */
+button:hover {
+  background-color: #f3f4f6 !important;
+  color: #374151 !important;
+}
+
+button:focus {
+  background-color: #f3f4f6 !important;
+  color: #374151 !important;
+}
+
+/* Button 컴포넌트 호버 효과 강제 적용 */
+[class*="hover:bg-accent"]:hover {
+  background-color: #f3f4f6 !important;
+}
+
+[class*="hover:text-accent-foreground"]:hover {
+  color: #374151 !important;
+}
+
+/* 노란색 관련 스타일 완전 제거 */
+* {
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -khtml-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
+/* 선택 텍스트 스타일도 회색으로 */
+::selection {
+  background: #c1c1c1 !important;
+  color: #333 !important;
+}
+
+::-moz-selection {
+  background: #c1c1c1 !important;
+  color: #333 !important;
 }
