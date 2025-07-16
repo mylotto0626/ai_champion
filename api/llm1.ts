@@ -9,7 +9,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const apiKey = process.env.MIR_API_KEY;
 
   console.log("🔑 API KEY:", apiKey);
-  console.log("📨 프롬프트:", prompt);
 
   try {
     const response = await fetch("http://amm.kr:3964/llm_med_gemma3_4b", {
