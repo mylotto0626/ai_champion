@@ -6,7 +6,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
-  const { prompt } = req.body;
   const apiKey = process.env.MIR_API_KEY;
 
   console.log("🔑 API KEY:", apiKey);
@@ -19,7 +18,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         "Content-Type": "application/json",
         "x-api-key": apiKey || "", // 환경 변수에서 API 키를 가져옵니다.
       },
-      body: JSON.stringify({ prompt }),
+      body: JSON.stringify({ prompt: "test" }),
     });
 
     const text = await response.text();
