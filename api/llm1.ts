@@ -17,7 +17,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": apiKey!,
+        "x-api-key": apiKey || "", // 환경 변수에서 API 키를 가져옵니다.
       },
       body: JSON.stringify({ prompt }),
     });

@@ -13,7 +13,7 @@ const queryClient = new QueryClient();
 
 const App = () => {
   useEffect(() => {
-    fetch("/api/symptom-consultation", {
+    fetch("/api/llm1", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
