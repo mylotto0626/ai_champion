@@ -1,9 +1,4 @@
 {
-  "functions": {
-    "api/llm1.ts": {
-      "runtime": "nodejs18.x"
-    }
-  },
   "rewrites": [
     {
       "source": "/api/llm1",
