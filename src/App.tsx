@@ -8,7 +8,6 @@ import SymptomConsultation from "./pages/SymptomConsultation";
 import CheckupAnalysis from "./pages/CheckupAnalysis";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
-
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -17,6 +16,7 @@ const App = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.REACT_APP_MIR_API_KEY}`,
       },
       body: JSON.stringify({ prompt: "Hello" }),
     })
