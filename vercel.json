@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/llm1.ts": {
+      "runtime": "vercel/node"
+    }
+  }
+}

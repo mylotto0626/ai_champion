@@ -12,7 +12,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "x-api-key": process.env.MIR_API_KEY!, // ✅ 서버에서 안전하게 주입됨
+      "x-api-key": process.env.MIR_API_KEY!,
     },
     body: JSON.stringify({ prompt }),
   });
