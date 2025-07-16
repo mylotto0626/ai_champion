@@ -1,7 +1,8 @@
 {
-  "functions": {
-    "api/llm1.ts": {
-      "runtime": "vercel/node"
+  "rewrites": [
+    {
+      "source": "/api/llm1",
+      "destination": "/api/llm1"
     }
-  }
+  ]
 }
