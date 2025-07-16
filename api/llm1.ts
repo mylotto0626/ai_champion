@@ -1,5 +1,5 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
-import fetch from "node-fetch";
+import fetch, { Headers } from "node-fetch";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
@@ -7,30 +7,30 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const apiKey = process.env.MIR_API_KEY;
-
-  console.log("🔑 API KEY:", apiKey);
+  if (!apiKey) {
+    console.error("❌ API KEY 누락");
+    return res.status(500).json({ error: "Missing API Key" });
+  }
 
   try {
     const response = await fetch("http://amm.kr:3964/llm_med_gemma3_4b", {
       method: "POST",
-      headers: {
+      headers: new Headers({
         "Content-Type": "application/json",
-        "x-api-key": apiKey || "", // 환경 변수에서 API 키를 가져옵니다.
-      },
+        "x-api-key": apiKey,
+      }),
       body: JSON.stringify({ prompt: "test" }),
     });
 
     const text = await response.text();
-    console.log("📩 원본 응답:", text);
-
     try {
       const json = JSON.parse(text);
       return res.status(200).json(json);
     } catch {
       return res.status(200).send(text);
     }
-  } catch (error) {
-    console.error("❌ 오류 발생:", error);
+  } catch (err) {
+    console.error("❌ fetch 오류:", err);
     return res.status(500).json({ error: "Internal Server Error" });
   }
 }
