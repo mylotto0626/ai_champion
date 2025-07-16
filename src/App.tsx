@@ -24,7 +24,6 @@ const App = () => {
       .then((data) => console.log("응답:", data))
       .catch((err) => console.error("에러:", err));
   }, []);
-
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
