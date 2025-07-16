@@ -13,7 +13,7 @@ const queryClient = new QueryClient();
 
 const App = () => {
   useEffect(() => {
-    fetch("/api/llm1") // 프록시 경로
+    fetch("/api/llm1") // ✅ 반드시 이 경로로
       .then((res) => res.json())
       .then((data) => console.log("응답:", data))
       .catch((err) => console.error("에러:", err));
