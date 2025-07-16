@@ -9,6 +9,7 @@ import CheckupAnalysis from "./pages/CheckupAnalysis";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 const queryClient = new QueryClient();
+// api key 추가
 
 const App = () => {
   useEffect(() => {
