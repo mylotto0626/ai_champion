@@ -1,7 +1,11 @@
 import { Hospital, Calendar, Search, Users, Heart } from "lucide-react";
 import ServiceCard from "./ServiceCard";
 
+import { useNavigate } from "react-router-dom";
+
 const ServicesSection = () => {
+  const navigate = useNavigate();
+
   const services = [
     {
       icon: Hospital,
@@ -15,6 +19,7 @@ const ServicesSection = () => {
       ],
       buttonText: "증상 상담 시작하기",
       gradient: true,
+      onClick: () => navigate("/symptom-consultation"), // ✅
     },
     {
       icon: Calendar,
@@ -27,6 +32,7 @@ const ServicesSection = () => {
         "추가 검사 필요성 판단",
       ],
       buttonText: "검진 결과 분석하기",
+      onClick: () => navigate("/checkup-analysis"),
     },
     {
       icon: Search,
@@ -39,6 +45,9 @@ const ServicesSection = () => {
         "다른 약과의 상호작용 체크",
       ],
       buttonText: "약 정보 검색하기",
+      onClick: () => {
+        alert("🚧 현재 준비 중인 서비스입니다");
+      },
     },
   ];
 

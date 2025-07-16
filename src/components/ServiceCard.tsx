@@ -1,5 +1,4 @@
 import { Button } from "../components/ui/button";
-import { Link } from "react-router-dom";
 import {
   Card,
   CardContent,
@@ -52,11 +51,12 @@ const ServiceCard = ({
           ))}
         </ul>
 
-        <Link to="/checkup-analysis" className="block w-full">
-          <Button className="w-full bg-medical-primary hover:bg-medical-primary/90 text-white text-base py-3 rounded-lg transition-all duration-200 group-hover:animate-pulse-soft">
-            {buttonText}
-          </Button>
-        </Link>
+        <Button
+          className="w-full bg-medical-primary hover:bg-medical-primary/90 text-white text-base py-3 rounded-lg transition-all duration-200 group-hover:animate-pulse-soft"
+          onClick={onClick} 
+        >
+          {buttonText}
+        </Button>
       </CardContent>
     </Card>
   );
