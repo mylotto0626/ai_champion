@@ -6,18 +6,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
-  const apiKey = process.env.MIR_API_KEY;
   const { prompt } = req.body;
 
   const response = await fetch("http://amm.kr:3964/llm_med_gemma3_4b", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "x-api-key": apiKey!,
+      "x-api-key": process.env.MIR_API_KEY!, // ✅ 서버에서 안전하게 주입됨
     },
     body: JSON.stringify({ prompt }),
   });
 
-  const result = await response.json();
-  return res.status(200).json(result);
+  const data = await response.json();
+  return res.status(200).json(data);
 }

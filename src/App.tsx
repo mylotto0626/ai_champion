@@ -17,7 +17,6 @@ const App = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": process.env.REACT_APP_MIR_API_KEY!,
       },
       body: JSON.stringify({ prompt: "Hello" }),
     })

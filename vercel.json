@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/llm1",
-      "destination": "/api/llm1.ts"
+      "destination": "http://amm.kr:3964/llm_med_gemma3_4b"
     }
   ]
 }
