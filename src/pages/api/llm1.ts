@@ -1,4 +1,5 @@
-import { NextApiRequest, NextApiResponse } from "next";
+// pages/api/llm1.ts
+import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
   req: NextApiRequest,
@@ -17,18 +18,9 @@ export default async function handler(
       body: JSON.stringify(req.body),
     });
 
-    const text = await response.text();
-
-    // JSON 여부 검사
-    try {
-      const data = JSON.parse(text);
-      return res.status(200).json(data);
-    } catch {
-      return res
-        .status(502)
-        .json({ error: "Invalid JSON from server", raw: text });
-    }
+    const data = await response.json();
+    return res.status(200).json(data);
   } catch (err: any) {
-    return res.status(500).json({ error: "Server error", detail: err.message });
+    return res.status(500).json({ error: "Server Error", detail: err.message });
   }
 }
