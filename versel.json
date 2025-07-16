@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "http://mn.amm.kr/:path*"
+      "destination": "https://mn.amm.kr/:path*"
     }
   ]
 }
