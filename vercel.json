@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/llm1",
+      "destination": "http://amm.kr:3964/llm_med_gemma3_4b"
+    }
+  ]
+}

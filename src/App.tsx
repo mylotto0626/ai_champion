@@ -20,7 +20,13 @@ const App = () => {
       },
       body: JSON.stringify({ prompt: "Hello" }),
     })
-      .then((res) => res.json())
+      .then(async (res) => {
+        if (!res.ok) {
+          const text = await res.text(); // 👈 JSON 아닌 경우 대비
+          throw new Error(`응답 오류: ${res.status} - ${text}`);
+        }
+        return res.json();
+      })
       .then((data) => console.log("응답:", data))
       .catch((err) => console.error("에러:", err));
   }, []);
